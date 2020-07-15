@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: mssngr/littlejohn-produce-cms
+  repo: littlejohn-produce/cms
 media_folder: '/images'
 public_folder: '/images'
 collections:
