@@ -21,6 +21,10 @@ collections:
       - name: title
         label: Title
         widget: string
+      - name: videoUrl
+        label: Video URL
+        widget: string
+        required: false
       - name: body
         label: Body
         widget: markdown
@@ -45,12 +49,16 @@ collections:
       - name: banner
         label: Banner
         widget: image
+      - name: videoUrl
+        label: Video URL
+        widget: string
+        required: false
       - name: body
         label: Body
         widget: markdown
-  - name: pickup_location
+  - name: pickupLocation
     label: Pickup Location
-    folder: pickup_locations
+    folder: pickupLocations
     create: true
     slug: '{{slug}}'
     extension: json
