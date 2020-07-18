@@ -11,6 +11,8 @@ collections:
     folder: pages
     create: true
     slug: '{{slug}}'
+    extension: json
+    format: json
     fields:
       - name: layout
         label: Layout
@@ -27,6 +29,8 @@ collections:
     folder: blog
     create: true
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    extension: json
+    format: json
     fields:
       - name: layout
         label: Layout
@@ -49,6 +53,8 @@ collections:
     folder: pickup_locations
     create: true
     slug: '{{slug}}'
+    extension: json
+    format: json
     fields:
       - name: id
         label: ID
