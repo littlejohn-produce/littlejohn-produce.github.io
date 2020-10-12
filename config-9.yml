@@ -1,0 +1,149 @@
+backend:
+  name: gitlab
+  repo: littlejohn-produce/cms
+  auth_type: implicit
+  app_id: 283656bc0628a0f24a901f99638b669522d9fd3725c2615cf9ea1269722deef6
+media_folder: '/images'
+public_folder: '/images'
+collections:
+  - name: page
+    label: Pages
+    folder: pages
+    create: true
+    slug: '{{slug}}'
+    extension: json
+    format: json
+    fields:
+      - name: layout
+        label: Layout
+        widget: hidden
+        default: generic
+      - name: title
+        label: Title
+        widget: string
+      - name: date
+        label: Publish Date
+        widget: datetime
+      - name: videoUrl
+        label: Video URL
+        widget: string
+        required: false
+      - name: body
+        label: Body
+        widget: markdown
+  - name: blog
+    label: Blog
+    folder: blog
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    extension: json
+    format: json
+    fields:
+      - name: layout
+        label: Layout
+        widget: hidden
+        default: generic
+      - name: title
+        label: Title
+        widget: string
+      - name: date
+        label: Publish Date
+        widget: datetime
+      - name: banner
+        label: Banner
+        widget: image
+      - name: videoUrl
+        label: Video URL
+        widget: string
+        required: false
+      - name: body
+        label: Body
+        widget: markdown
+  - name: deliveryLocation
+    label: Delivery Locations
+    folder: deliveryLocations
+    create: true
+    slug: '{{slug}}'
+    extension: json
+    format: json
+    fields:
+      - name: name
+        label: Name
+        widget: string
+      - name: date
+        label: Publish Date
+        widget: datetime
+      - name: deadlineIsoWeekday
+        label: Deadline Day of Week
+        widget: select
+        options: [{ label: "Sunday", value: 7 }, { label: "Monday", value: 1 }, { label: "Tuesday", value: 2 }, { label: "Wednesday", value: 3 }, { label: "Thursday", value: 4 }, { label: "Friday", value: 5 }, { label: "Saturday", value: 6 }]
+      - name: deadlineTime
+        label: Deadline Military Time (ie: 1600)
+        widget: number
+        min: 600
+        max: 2000
+      - name: fulfillmentIsoWeekday
+        label: Fulfillment Day of Week
+        widget: select
+        options: [{ label: "Sunday", value: 7 }, { label: "Monday", value: 1 }, { label: "Tuesday", value: 2 }, { label: "Wednesday", value: 3 }, { label: "Thursday", value: 4 }, { label: "Friday", value: 5 }, { label: "Saturday", value: 6 }]
+      - name: fulfillmentTimeStart
+        label: Fulfillment Military Time Start (ie: 1200)
+        widget: number
+        min: 600
+        max: 2000
+      - name: fulfillmentTimeEnd
+        label: Fulfillment Military Time End (ie: 1400)
+        widget: number
+        min: 600
+        max: 2000
+      - name: address
+        label: Address
+        widget: string
+  - name: pickupLocation
+    label: Pickup Locations
+    folder: pickupLocations
+    create: true
+    slug: '{{slug}}'
+    extension: json
+    format: json
+    fields:
+      - name: id
+        label: ID (Deprecated - Leave as-is)
+        widget: string
+        required: false
+      - name: title
+        label: Name
+        widget: string
+      - name: date
+        label: Publish Date
+        widget: datetime
+      - name: time
+        label: Time (Deprecated - Leave as-is)
+        widget: string
+        required: false
+      - name: deadlineIsoWeekday
+        label: Deadline Day of Week
+        widget: select
+        options: [{ label: "Sunday", value: 7 }, { label: "Monday", value: 1 }, { label: "Tuesday", value: 2 }, { label: "Wednesday", value: 3 }, { label: "Thursday", value: 4 }, { label: "Friday", value: 5 }, { label: "Saturday", value: 6 }]
+      - name: deadlineTime
+        label: Deadline Military Time (ie: 1600)
+        widget: number
+        min: 600
+        max: 2000
+      - name: fulfillmentIsoWeekday
+        label: Fulfillment Day of Week
+        widget: select
+        options: [{ label: "Sunday", value: 7 }, { label: "Monday", value: 1 }, { label: "Tuesday", value: 2 }, { label: "Wednesday", value: 3 }, { label: "Thursday", value: 4 }, { label: "Friday", value: 5 }, { label: "Saturday", value: 6 }]
+      - name: fulfillmentTimeStart
+        label: Fulfillment Military Time Start (ie: 1200)
+        widget: number
+        min: 600
+        max: 2000
+      - name: fulfillmentTimeEnd
+        label: Fulfillment Military Time End (ie: 1400)
+        widget: number
+        min: 600
+        max: 2000
+      - name: address
+        label: Address
+        widget: string
