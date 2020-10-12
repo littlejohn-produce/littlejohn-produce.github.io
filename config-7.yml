@@ -7,7 +7,7 @@ media_folder: '/images'
 public_folder: '/images'
 collections:
   - name: page
-    label: Page
+    label: Pages
     folder: pages
     create: true
     slug: '{{slug}}'
@@ -59,8 +59,48 @@ collections:
       - name: body
         label: Body
         widget: markdown
+  - name: deliveryLocation
+    label: Delivery Locations
+    folder: deliveryLocations
+    create: true
+    slug: '{{slug}}'
+    extension: json
+    format: json
+    fields:
+      - name: name
+        label: Name
+        widget: string
+      - name: date
+        label: Publish Date
+        widget: datetime
+      - name: deadlineIsoWeekday
+        label: Deadline Day of Week
+        widget: select
+        options: [{ label: "Sunday", value: 7 }, { label: "Monday", value: 1 }, { label: "Tuesday", value: 2 }, { label: "Wednesday", value: 3 }, { label: "Thursday", value: 4 }, { label: "Friday", value: 5 }, { label: "Saturday", value: 6 }]
+      - name: deadlineTime
+        label: Deadline Military Time (ie: 1600)
+        widget: number
+        min: 600
+        max: 2000
+      - name: fulfillmentIsoWeekday
+        label: Fulfillment Day of Week
+        widget: select
+        options: [{ label: "Sunday", value: 7 }, { label: "Monday", value: 1 }, { label: "Tuesday", value: 2 }, { label: "Wednesday", value: 3 }, { label: "Thursday", value: 4 }, { label: "Friday", value: 5 }, { label: "Saturday", value: 6 }]
+      - name: fulfillmentTimeStart
+        label: Fulfillment Military Time Start (ie: 1200)
+        widget: number
+        min: 600
+        max: 2000
+      - name: fulfillmentTimeEnd
+        label: Fulfillment Military Time End (ie: 1400)
+        widget: number
+        min: 600
+        max: 2000
+      - name: address
+        label: Address
+        widget: string
   - name: pickupLocation
-    label: Pickup Location
+    label: Pickup Locations
     folder: pickupLocations
     create: true
     slug: '{{slug}}'
@@ -68,23 +108,42 @@ collections:
     format: json
     fields:
       - name: id
-        label: ID
+        label: ID (Deprecated - Leave as-is)
         widget: string
+        required: false
       - name: title
-        label: Title
+        label: Name
         widget: string
       - name: date
         label: Publish Date
         widget: datetime
-      - name: deadline
-        label: Deadline
-        widget: datetime
-      - name: fulfillmentTime
-        label: Fulfillment Time
-        widget: datetime
       - name: time
-        label: Time
+        label: Time (Deprecated - Leave as-is)
         widget: string
+        required: false
+      - name: deadlineIsoWeekday
+        label: Deadline Day of Week
+        widget: select
+        options: [{ label: "Sunday", value: 7 }, { label: "Monday", value: 1 }, { label: "Tuesday", value: 2 }, { label: "Wednesday", value: 3 }, { label: "Thursday", value: 4 }, { label: "Friday", value: 5 }, { label: "Saturday", value: 6 }]
+      - name: deadlineTime
+        label: Deadline Military Time (ie: 1600)
+        widget: number
+        min: 600
+        max: 2000
+      - name: fulfillmentIsoWeekday
+        label: Fulfillment Day of Week
+        widget: select
+        options: [{ label: "Sunday", value: 7 }, { label: "Monday", value: 1 }, { label: "Tuesday", value: 2 }, { label: "Wednesday", value: 3 }, { label: "Thursday", value: 4 }, { label: "Friday", value: 5 }, { label: "Saturday", value: 6 }]
+      - name: fulfillmentTimeStart
+        label: Fulfillment Military Time Start (ie: 1200)
+        widget: number
+        min: 600
+        max: 2000
+      - name: fulfillmentTimeEnd
+        label: Fulfillment Military Time End (ie: 1400)
+        widget: number
+        min: 600
+        max: 2000
       - name: address
         label: Address
         widget: string
